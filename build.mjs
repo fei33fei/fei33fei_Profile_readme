@@ -19,7 +19,6 @@ const projectsData = read('projects.json');
 const papersData = read('papers.json');
 const awardsData = read('awards.json');
 const profile = read('profile.json');
-const resumes = read('resumes.json');
 
 const projects = projectsData.projects;
 const papers = papersData.papers;
@@ -57,7 +56,7 @@ const TRACK_CLASSES = [
   'u-meta', 'hero__eyebrow', 'hero__meta', 'chapter-mark__label', 'project-card__track',
   'project-card__headlineLabel', 'metric__label', 'table-caption', 'callout__t',
   'figure__caption', 'diagram__caption', 'pill', 'badge', 'honour-list__note',
-  'career__time', 'resume-sheet__contact', 'figure__status', 'resume-tab', 'u-cap'
+  'career__time', 'figure__status', 'u-cap'
 ];
 const TRACK_RE = new RegExp(
   `(<(?:span|div|p|td|th|caption|figcaption|b|label)[^>]*class="[^"]*\\b(?:${TRACK_CLASSES.join('|')})\\b[^"]*"[^>]*>)([^<]*)(</)`,
@@ -459,7 +458,7 @@ function buildHome() {
     <div>
       ${chapterMark(site.chapters.about)}
       <h2 class="section__title">联系</h2>
-      <p class="section__lede">正在找 2027 届的计算机视觉 / Agent 开发岗位。简历可打印为 PDF，论文与仓库链接都在下面。</p>
+      <p class="section__lede">正在找 2027 届的计算机视觉 / Agent 开发岗位。简历正在定稿，完成后在此提供下载；论文与仓库链接都在下面。</p>
       <div class="hero__cta" style="margin-top:28px">
         <a class="btn btn--primary" href="/resume/">${esc(site.identity.ctas[2].label)}${ARROW}</a>
         <a class="btn btn--ink" href="mailto:${esc(c.email)}">${iconMail()} 写邮件</a>
@@ -586,7 +585,7 @@ function buildProject(p) {
   });
 }
 
-/* ---------- 页面：论文与专利 ---------- */
+/* ---------- 页面：论文与成果 ---------- */
 function buildPapers() {
   const ch = site.chapters.papers;
   const levelPill = (lvl) => {
@@ -599,7 +598,7 @@ function buildPapers() {
   body.push(scene(`
   <div class="shell shell--wide">
     <div class="hero__eyebrow" data-rise>${esc(ch.index)} · ${esc(ch.label)}</div>
-    <h1 class="hero__name" data-rise style="font-size:var(--size-display-l)">论文与专利</h1>
+    <h1 class="hero__name" data-rise style="font-size:var(--size-display-l)">论文与成果</h1>
     <p class="hero__lead" data-rise style="--i:2">${esc(papersData.intro)}</p>
   </div>`, {
     compact: true, horizon: 58,
@@ -633,7 +632,7 @@ function buildPapers() {
     </div>
     <div class="table-wrap">
       <table class="data-table paper-table">
-        <caption class="u-meta" style="text-align:left;padding:0 0 12px">共 ${papers.length} 项 · 论文 ${papers.filter((p) => p.kind === '论文').length} · 专利 1 · 软著 1</caption>
+        <caption class="u-meta" style="text-align:left;padding:0 0 12px">共 ${papers.length} 项 · 论文 ${papers.filter((p) => p.kind === '论文').length} · 软著 ${papers.filter((p) => p.kind !== '论文').length}</caption>
         <thead><tr>
           <th scope="col">题目</th><th scope="col">类型</th><th scope="col">收录级别</th><th scope="col">时间</th><th scope="col">位次</th><th scope="col">状态 / 链接</th>
         </tr></thead>
@@ -654,8 +653,8 @@ function buildPapers() {
 </section>`);
 
   return page({
-    title: '论文与专利 · 沈亦菲 · FeyFey',
-    desc: '5 篇一作论文（SCI 三区 ×1、EI 收录 ×2、会议 ×2）、1 项发明专利、1 项软件著作权，另有 SCI 二区四作成果如实列出。',
+    title: '论文与成果 · 沈亦菲 · FeyFey',
+    desc: '4 篇一作论文（SCI 三区 ×1、EI 收录 ×2、会议 ×1）、1 项软件著作权，另有 SCI 二区四作成果如实列出。',
     path: '/papers/', active: '/papers/', accent: ch.accent, body: body.join('\n')
   });
 }
@@ -816,55 +815,62 @@ function buildAbout() {
   });
 }
 
-/* ---------- 页面：简历 ---------- */
+/* ---------- 页面：简历（整理中占位） ---------- */
 function buildResume() {
   const ch = site.chapters.about;
+  const c = site.contact;
   const body = [];
   body.push(scene(`
   <div class="shell shell--wide">
     <div class="hero__eyebrow" data-rise>${esc(site.chapters.about.index)} · 简历</div>
     <h1 class="hero__name" data-rise style="font-size:var(--size-display-l)">简历</h1>
-    <p class="hero__lead" data-rise style="--i:2">三版按求职方向拆分，内容逐段取自原始简历文件，没有改写。PDF 尚未定稿导出 —— 用下面的按钮直接打印为 PDF，内容与页面上完全一致。</p>
+    <p class="hero__lead" data-rise style="--i:2">简历正在定稿，完成后在此发布并提供 PDF 下载。</p>
   </div>`, {
     compact: true, horizon: 60,
     contours: [{ cls: 'mid', d: ch.contour, style: 'right:-6%;top:4%;width:44%;height:60%' }]
   }));
   body.push(cutEdge('d'));
 
-  const renderBlocks = (blocks) => blocks.map((b) => {
-    if (b.type === 'section') return `<section><h2>${esc(b.title)}</h2>${(b.paragraphs || []).map((p) => `<p>${inline(p)}</p>`).join('')}</section>`;
-    if (b.type === 'note') return `<div class="resume-note"><h2>${esc(b.title)}</h2>${(b.paragraphs || []).map((p) => `<p>${inline(p)}</p>`).join('')}</div>`;
-    if (b.type === 'list') return `<section><h2>${esc(b.title)}</h2><ul>${(b.items || []).map((i) => `<li>${inline(i)}</li>`).join('')}</ul></section>`;
-    if (b.type === 'entries') return `<section><h2>${esc(b.title)}</h2>${(b.items || []).map((e) => `<div class="resume-entry"><h3>${inline(e.h)}</h3>${e.p ? `<p>${inline(e.p)}</p>` : ''}${e.quote ? `<p class="resume-quote">${inline(e.quote)}</p>` : ''}</div>`).join('')}</section>`;
-    return '';
-  }).join('\n');
-
   body.push(`<section class="paper section" style="--chapter-accent:${esc(ch.accent)}">
   <div class="shell shell--wide">
-    <div class="resume-tools">
-      <button class="btn btn--solid" type="button" data-print>打印 / 导出 PDF</button>
-      <span class="u-meta">${esc(resumes.note)}</span>
+    ${chapterMark(ch)}
+    <div class="section__head">
+      <h2 class="section__title">整理中</h2>
+      <p class="section__lede">简历正在定稿，定稿后会在这里提供完整内容与 PDF 下载。在此之前，项目、论文与荣誉页面已经可以完整阅读。</p>
     </div>
-    <div class="resume-tabs" role="tablist" aria-label="简历版本">
-      ${resumes.variants.map((v, i) => `<button class="resume-tab" type="button" role="tab" data-resume-tab="${esc(v.id)}" aria-selected="${i === 0}" aria-controls="resume-${esc(v.id)}" id="tab-${esc(v.id)}" tabindex="${i === 0 ? '0' : '-1'}"><b>${esc(v.code)}</b><span>${esc(v.label)}</span></button>`).join('\n      ')}
+    <div class="collection">
+      <article class="project-card" data-reveal style="--chapter-accent:${esc(ch.accent)}">
+        <div class="plate"><div class="plate__sheet">
+          <div class="project-card__top"><span class="project-card__track">项目</span><span class="project-card__year">${projects.length} 个</span></div>
+          <h3 class="project-card__title"><a class="project-card__link" href="/projects/">${projects.length} 个项目</a></h3>
+          <p class="project-card__line">两条主线与一底色，逐个写清问题、方法、指标与边界。</p>
+        </div></div>
+      </article>
+      <article class="project-card" data-reveal style="--chapter-accent:${esc(site.chapters.papers.accent)}">
+        <div class="plate"><div class="plate__sheet plate__sheet--notch">
+          <div class="project-card__top"><span class="project-card__track">论文与成果</span><span class="project-card__year">${papers.length} 项</span></div>
+          <h3 class="project-card__title"><a class="project-card__link" href="/papers/">${papers.length} 项成果</a></h3>
+          <p class="project-card__line">收录级别与署名位次并列标注，不做取舍。</p>
+        </div></div>
+      </article>
+      <article class="project-card" data-reveal style="--chapter-accent:${esc(site.chapters.awards.accent)}">
+        <div class="plate"><div class="plate__sheet plate__sheet--lowcut">
+          <div class="project-card__top"><span class="project-card__track">荣誉</span></div>
+          <h3 class="project-card__title"><a class="project-card__link" href="/awards/">国家级 · 省级 · 校级</a></h3>
+          <p class="project-card__line">获奖时间、赛事与名次如实列出，参与奖单独折叠。</p>
+        </div></div>
+      </article>
     </div>
-    ${resumes.variants.map((v, i) => `<div class="resume-panel" role="tabpanel" data-resume-panel="${esc(v.id)}" id="resume-${esc(v.id)}" aria-labelledby="tab-${esc(v.id)}" tabindex="0"${i === 0 ? '' : ' hidden'}>
-      <div class="resume-sheet">
-        <header class="resume-sheet__head">
-          <h2 class="resume-sheet__title">${esc(v.title)}</h2>
-          <p class="resume-sheet__target">求职意向：${esc(v.target)}</p>
-          <p class="resume-sheet__meta">${v.meta.map((m) => esc(m)).join('　|　')}</p>
-          <p class="resume-sheet__contact">${esc(v.contact)}</p>
-        </header>
-        ${renderBlocks(v.blocks)}
-      </div>
-    </div>`).join('\n    ')}
+    <div class="resume-note" style="margin-top:34px">
+      <h2>先联系我</h2>
+      <p>${esc(c.email)}　·　${esc(c.phone)}　·　<a href="${esc(c.github)}" rel="noopener">GitHub ${esc(c.githubHandle)}</a></p>
+    </div>
   </div>
 </section>`);
 
   return page({
     title: '简历 · 沈亦菲 · FeyFey',
-    desc: '三版简历：Agent 应用与工作流 / AI 产品经理与解决方案 / 生成式 AI 与 NLP。可直接打印为 PDF。',
+    desc: '简历正在定稿，完成后在此发布并提供 PDF 下载。',
     path: '/resume/', active: '/resume/', accent: ch.accent, body: body.join('\n')
   });
 }
@@ -941,7 +947,7 @@ for (const f of ['portrait-3x4.jpg', 'portrait-1x1.jpg']) {
 cpSync(join(ROOT, 'assets', 'src'), join(DIST, 'assets', 'src'), { recursive: true });
 
 /* 数据 JSON —— 内容 API，随站点一起发布 */
-for (const f of ['site.json', 'projects.json', 'papers.json', 'awards.json', 'profile.json', 'resumes.json']) {
+for (const f of ['site.json', 'projects.json', 'papers.json', 'awards.json', 'profile.json']) {
   write(`data/${f}`, readFileSync(join(ROOT, 'data', f), 'utf8'));
 }
 
@@ -962,8 +968,7 @@ write('portfolio.json', JSON.stringify({
   method: profile.method,
   projects: projectsData.projects,
   papers: papersData.papers,
-  awards: awardsData,
-  resumes: resumes.variants
+  awards: awardsData
 }, null, 2));
 
 /* 页面 */

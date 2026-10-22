@@ -52,7 +52,7 @@ p { max-width: var(--measure); }
 /* ---------- 溢出防护：栅格 / 弹性子项允许收缩，长词可断行 ---------- */
 .hero__grid > *, .detail-hero__grid > *, .article__grid > *, .collection > *,
 .tracks > *, .about-hero > *, .skill-matrix > *, .method-grid > *,
-.contact-band > *, .resume-tools > *, .filters > * { min-width: 0; }
+.contact-band > *, .filters > * { min-width: 0; }
 p, li, dd, dt, h1, h2, h3, figcaption { overflow-wrap: break-word; }
 
 /* ---------- shell ---------- */
@@ -527,41 +527,9 @@ details.collapse .timeline__list { margin-top: 26px; }
 .base-list dd { font-size: 15px; line-height: 1.75; color: var(--ink-secondary); }
 
 /* =========================================================================
-   Resume — 三版切换
+   简历占位页
    ========================================================================= */
-.resume-tabs { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 34px; }
-.resume-tab {
-  padding: 11px 20px; border: 1px solid var(--rule-strong); border-radius: 2px; background: transparent;
-  text-align: left; transition: all .18s ease;
-}
-.resume-tab b { display: block; font-family: var(--font-mono); font-size: 11px; letter-spacing: .14em; color: var(--ink-tertiary); font-weight: 400; }
-.resume-tab span { display: block; margin-top: 4px; font-size: 14.5px; color: var(--ink-secondary); }
-.resume-tab[aria-selected="true"] { background: var(--ink-primary); border-color: var(--ink-primary); }
-.resume-tab[aria-selected="true"] b { color: color-mix(in srgb, var(--paper) 62%, transparent); }
-.resume-tab[aria-selected="true"] span { color: var(--paper); }
-.resume-panel[hidden] { display: none; }
-.resume-sheet { max-width: 880px; }
-.resume-sheet__head { padding-bottom: 22px; border-bottom: 2px solid var(--ink-primary); }
-.resume-sheet .resume-sheet__title {
-  font-family: var(--font-display); font-size: clamp(1.4rem, 2.1vw, 1.95rem);
-  line-height: 1.3; letter-spacing: normal; color: var(--ink-primary);
-  padding-bottom: 0; border-bottom: 0; margin-bottom: 0;
-}
-.resume-sheet__target { margin-top: 8px; font-size: 14px; color: var(--ink-secondary); }
-.resume-sheet__meta { margin-top: 12px; font-size: 13.5px; color: var(--ink-tertiary); }
-.resume-sheet__contact { margin-top: 6px; font-family: var(--font-mono); font-size: 12.5px; letter-spacing: .04em; color: var(--ink-secondary); }
-.resume-sheet section { margin-top: 30px; }
-.resume-sheet h2 { font-family: var(--font-mono); font-size: 11.5px; letter-spacing: .2em; text-transform: uppercase; font-weight: 400; color: var(--chapter-accent, var(--ink-tertiary)); padding-bottom: 8px; border-bottom: 1px solid var(--rule-strong); margin-bottom: 14px; }
-.resume-sheet p { font-size: 15px; line-height: 1.88; max-width: none; }
-.resume-sheet ul { display: grid; gap: 9px; }
-.resume-sheet li { position: relative; padding-left: 17px; font-size: 14.5px; line-height: 1.82; color: var(--ink-secondary); }
-.resume-sheet li::before { content: ""; position: absolute; left: 0; top: .72em; width: 7px; height: 1.5px; background: var(--chapter-accent, var(--ink-tertiary)); }
-.resume-entry { margin-bottom: 18px; }
-.resume-entry h3 { font-family: var(--font-display); font-size: 1.06rem; line-height: 1.45; }
-.resume-entry p { margin-top: 6px; }
-.resume-quote { margin-top: 9px; padding: 11px 15px; border-left: 2px solid var(--chapter-accent, #5FA38C); background: color-mix(in srgb, var(--chapter-accent, #5FA38C) 7%, transparent); font-size: 13.5px; line-height: 1.78; color: var(--ink-secondary); }
 .resume-note { margin-top: 26px; padding: 16px 18px; background: color-mix(in srgb, var(--ink-primary) 4%, transparent); border-left: 2px solid var(--ink-tertiary); }
-.resume-tools { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; margin-bottom: 28px; }
 
 /* =========================================================================
    首页：荣誉速览 / 联系方式 / 页脚
@@ -624,11 +592,10 @@ details.collapse .timeline__list { margin-top: 26px; }
   .kv > div, .base-list > div { grid-template-columns: minmax(0, 1fr); gap: 6px; }
   .rail-list div { grid-template-columns: 60px 1fr; }
   .hero { min-height: 0; }
-  .resume-sheet { max-width: none; }
 }
 @media (max-width: 480px) {
   html[lang="zh-CN"] body { font-size: 16px; }
-  .prose p, .resume-sheet p { line-height: 1.86; }
+  .prose p { line-height: 1.86; }
   .steps li { grid-template-columns: 34px 1fr; gap: 12px; }
   .steps__n { width: 34px; height: 34px; font-size: 13px; }
   .btn { padding: 12px 20px; font-size: 14px; }
@@ -643,18 +610,13 @@ details.collapse .timeline__list { margin-top: 26px; }
 }
 
 /* =========================================================================
-   Print — /resume/ 可直接打印为 PDF
+   Print —— 页面可直接打印为 PDF
    ========================================================================= */
 @media print {
-  .site-nav, .site-footer, .resume-tabs, .resume-tools, .cutedge, .scene__floor, .scene__grain, .scene__contour { display: none !important; }
+  .site-nav, .site-footer, .cutedge, .scene__floor, .scene__grain, .scene__contour { display: none !important; }
   body { background: #fff; color: #000; font-size: 11pt; }
   .paper { background: #fff !important; }
   .section { padding-block: 0; }
-  .resume-sheet { max-width: none; }
-  .resume-sheet h2 { color: #000; border-bottom-color: #999; }
-  .resume-quote { background: none; border-left-color: #666; }
-  .resume-entry, .resume-sheet li, .resume-sheet p { page-break-inside: avoid; }
-  .resume-panel[hidden] { display: none !important; }
   a { text-decoration: none; }
 }
 
@@ -667,7 +629,7 @@ details.collapse .timeline__list { margin-top: 26px; }
 .hero__eyebrow, .u-meta, .chapter-mark__label, .project-card__track,
 .project-card__headlineLabel, .metric__label, .table-caption, .data-table th,
 .callout__t, .kv dt, .rail-list dt, .base-list dt, .contact-list dt,
-.skill-group h3, .resume-sheet h2, .resume-sheet__contact, .site-nav__cta,
+.skill-group h3, .site-nav__cta,
 .figure__status, .figure__caption, .diagram__caption, .pill, .badge,
 .honour-list__note, .career__time, .rail-hook__label, .timeline__legend .u-meta,
 .hero__meta, .paper-table .u-meta, .u-cap,

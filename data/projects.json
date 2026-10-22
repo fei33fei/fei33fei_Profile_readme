@@ -237,10 +237,10 @@
       "titleEn": "Multi-scene Road Pothole Real-time Detection",
       "oneLine": "基于 YOLOv8 构建多场景路面坑洼实时检测系统，自建城市 / 乡村 / 山区道路数据集；验证集 mAP@0.5 达 74.26%，推理速度 61.27 FPS，模型仅 8.1 GFLOPs、300 万参数，可部署于嵌入式终端，满足助盲设备实时性要求。",
       "headline": "61.27 FPS · mAP@0.5 74.26%",
-      "headlineLabel": "发明专利 + 软著",
+      "headlineLabel": "软著已授权",
       "year": "2026.07",
-      "venue": "发明专利 + 软件著作权 + 会议论文",
-      "badges": ["发明专利", "软著", "自建数据集", "助盲应用"],
+      "venue": "软件著作权 + 会议论文",
+      "badges": ["软著", "自建数据集", "助盲应用"],
       "github": { "status": "pending", "url": null, "repoName": "multi-scene-road-pothole-detection" },
       "role": "独立完成数据集采集、模型训练与边缘端部署验证。",
       "sections": [
@@ -267,7 +267,7 @@
         { "type": "h", "text": "结果" },
         { "type": "kv", "items": [["mAP@0.5", "74.26%"], ["边缘端", "61.27 FPS（Jetson Orin Nano Super）"], ["GFLOPs", "8.1"], ["参数量", "300 万"], ["分场景指标", "城市 / 乡村 / 山区分项表待补"], ["待补", "边缘端部署框架（ONNX / TensorRT）、具体设备型号与功耗"]] },
         { "type": "h", "text": "关联产出" },
-        { "type": "list", "items": ["发明专利《基于 YOLOv8 的路面坑洼实时检测算法可视化系统》", "软件著作权《基于深度学习的路面凹陷智能检测系统》（2026.07 已授权）", "会议论文《基于 YOLOv8 的多场景路面坑洼实时检测算法研究》（2026.04）"] }
+        { "type": "list", "items": ["软件著作权《基于深度学习的路面凹陷智能检测系统》（2026.07 已授权）", "会议论文《基于 YOLOv8 的多场景路面坑洼实时检测算法研究》（2026.04）"] }
       ],
       "materials": [
         { "kind": "分场景指标表（城市 / 乡村 / 山区）", "status": "pending" },
@@ -275,7 +275,7 @@
         { "kind": "边缘端演示录屏", "status": "pending" }
       ],
       "interviewHook": "自建数据集只有 665 张，为什么不直接用公开数据集？",
-      "related": { "papers": ["pothole-patent", "pothole-copyright", "pothole-paper"], "awards": [], "projects": [] }
+      "related": { "papers": ["pothole-copyright", "pothole-paper"], "awards": [], "projects": [] }
     },
     {
       "slug": "defect-inspection-agent",

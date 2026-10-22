@@ -106,52 +106,7 @@
     apply(known ? wanted : 'all');
   }
 
-  /* ---------- 6. 简历版本切换 ---------- */
-  function initResumeTabs() {
-    var tabs = Array.prototype.slice.call(doc.querySelectorAll('[data-resume-tab]'));
-    if (!tabs.length) return;
-    var panels = Array.prototype.slice.call(doc.querySelectorAll('[data-resume-panel]'));
-
-    function select(key, animate) {
-      var apply = function () {
-        tabs.forEach(function (t) {
-          var on = t.getAttribute('data-resume-tab') === key;
-          t.setAttribute('aria-selected', on ? 'true' : 'false');
-          t.setAttribute('tabindex', on ? '0' : '-1');
-        });
-        panels.forEach(function (p) {
-          p.hidden = p.getAttribute('data-resume-panel') !== key;
-        });
-      };
-      if (animate && doc.startViewTransition) {
-        doc.startViewTransition(apply);
-      } else {
-        apply();
-      }
-    }
-
-    tabs.forEach(function (tab) {
-      tab.addEventListener('click', function () { select(tab.getAttribute('data-resume-tab'), true); });
-      tab.addEventListener('keydown', function (e) {
-        var i = tabs.indexOf(tab);
-        if (e.key === 'ArrowRight' || e.key === 'ArrowDown') {
-          e.preventDefault(); var n = tabs[(i + 1) % tabs.length]; n.focus(); select(n.getAttribute('data-resume-tab'), true);
-        } else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
-          e.preventDefault(); var p = tabs[(i - 1 + tabs.length) % tabs.length]; p.focus(); select(p.getAttribute('data-resume-tab'), true);
-        } else if (e.key === 'Home') {
-          e.preventDefault(); tabs[0].focus(); select(tabs[0].getAttribute('data-resume-tab'), true);
-        } else if (e.key === 'End') {
-          e.preventDefault(); tabs[tabs.length - 1].focus(); select(tabs[tabs.length - 1].getAttribute('data-resume-tab'), true);
-        }
-      });
-    });
-
-    var initial = new URL(location.href).searchParams.get('v');
-    var known = tabs.some(function (t) { return t.getAttribute('data-resume-tab') === initial; });
-    select(known ? initial : tabs[0].getAttribute('data-resume-tab'), false);
-  }
-
-  /* ---------- 7. 复制邮箱 ---------- */
+  /* ---------- 6. 复制邮箱 ---------- */
   function initCopy() {
     doc.querySelectorAll('[data-copy]').forEach(function (btn) {
       btn.addEventListener('click', function () {
@@ -169,21 +124,12 @@
     });
   }
 
-  /* ---------- 8. 打印 / 导出 PDF ---------- */
-  function initPrint() {
-    doc.querySelectorAll('[data-print]').forEach(function (btn) {
-      btn.addEventListener('click', function () { window.print(); });
-    });
-  }
-
   function boot() {
     initNav();
     initReveal();
     initTakeover();
     initFilters();
-    initResumeTabs();
     initCopy();
-    initPrint();
   }
 
   if (doc.readyState === 'loading') doc.addEventListener('DOMContentLoaded', boot);

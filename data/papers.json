@@ -1,5 +1,5 @@
 {
-  "intro": "论文、专利与软件著作权。类型与收录级别分两列写；每条标注署名位次 —— 位次与级别同等重要，不做取舍。",
+  "intro": "论文与软件著作权。类型与收录级别分两列写；每条标注署名位次 —— 位次与级别同等重要，不做取舍。",
   "footnote": "第 2、3 项的出版载体（会议 / 期刊）依据《获奖经历总结》标注；EI 收录的最终认定以出版方收录证书为准。",
   "papers": [
     {
@@ -98,18 +98,6 @@
       "position": "四作",
       "featured": false,
       "note": "如实列出，不做项目页、不进精选项目。理由：四作的贡献度通常无法支撑独立项目页的深度要求；但在列表里出现，不占用主线位置，也不损失信息。"
-    },
-    {
-      "id": "pothole-patent",
-      "title": "基于 YOLOv8 的路面坑洼实时检测算法可视化系统",
-      "titleZh": "",
-      "kind": "发明专利",
-      "level": "—",
-      "time": null,
-      "position": "—",
-      "featured": false,
-      "note": "对应项目页",
-      "link": "/projects/road-pothole-detection/"
     },
     {
       "id": "pothole-copyright",
