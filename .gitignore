@@ -1,0 +1,14 @@
+# 依赖与构建产物
+node_modules/
+dist/
+.publish/
+
+# 诊断截图（保留的精选截图在 docs/）
+dev/shots/
+
+# 编辑器 / 系统
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+*.log

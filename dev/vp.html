@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<title>视口检查</title>
+<style>
+  html,body { margin:0; background:#181818; color:#cfd8dc; font:12px/1.5 "Segoe UI",sans-serif; }
+  .bar { padding:5px 8px; background:#222; color:#7fd3b0; font:600 12px monospace; }
+  iframe { border:0; display:block; background:#000; }
+</style>
+</head>
+<body>
+<div class="bar" id="bar">…</div>
+<iframe id="f"></iframe>
+<script>
+  const q = new URLSearchParams(location.search);
+  const w = parseInt(q.get('w') || '1440', 10);
+  const h = parseInt(q.get('h') || '900', 10);
+  const p = q.get('p') || '/';
+  const f = document.getElementById('f');
+  f.width = w; f.height = h;
+  f.style.width = w + 'px'; f.style.height = h + 'px';
+  f.src = p;
+  document.getElementById('bar').textContent = w + ' × ' + h + '  →  ' + p;
+  window.__vp = { w, h, p };
+</script>
+</body>
+</html>

@@ -1,0 +1,11 @@
+{
+  // Cloudflare Pages 配置
+  // 部署：npm run build && npx wrangler pages deploy dist --project-name feyfei
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "feyfei-portfolio",
+  "compatibility_date": "2026-10-01",
+  "pages_build_output_dir": "./dist",
+  "observability": {
+    "enabled": true
+  }
+}

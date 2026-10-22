@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<title>视口检查 · 1440×900 / 1920×1080 / 1366×768 / 390×844</title>
+<style>
+  body { margin: 0; background: #1a1a1a; color: #eee; font: 13px/1.5 "Segoe UI", sans-serif; }
+  .row { padding: 10px 12px 4px; display: flex; gap: 10px; align-items: baseline; }
+  .row b { color: #7fd3b0; font-weight: 600; }
+  .row span { color: #999; }
+  .vp { margin: 0 12px 18px; border: 1px solid #444; background: #000; overflow: hidden; }
+  .vp iframe { border: 0; display: block; }
+  .s1440 iframe { width: 1440px; height: 900px; transform: scale(.62); transform-origin: 0 0; }
+  .s1440 { height: 558px; }
+  .s1920 iframe { width: 1920px; height: 1080px; transform: scale(.48); transform-origin: 0 0; }
+  .s1920 { height: 518px; }
+  .s1366 iframe { width: 1366px; height: 768px; transform: scale(.64); transform-origin: 0 0; }
+  .s1366 { height: 492px; }
+  .s390 iframe { width: 390px; height: 844px; transform: scale(.85); transform-origin: 0 0; }
+  .s390 { height: 717px; }
+</style>
+</head>
+<body>
+  <div class="row"><b>1440 × 900</b><span>主构图 / 导航 / 入口序列</span></div>
+  <div class="vp s1440"><iframe src="/"></iframe></div>
+
+  <div class="row"><b>1920 × 1080</b><span>图像分辨率 / 空间张力</span></div>
+  <div class="vp s1920"><iframe src="/"></iframe></div>
+
+  <div class="row"><b>1366 × 768</b><span>低高度笔记本 / 固定 UI</span></div>
+  <div class="vp s1366"><iframe src="/"></iframe></div>
+
+  <div class="row"><b>390 × 844</b><span>响应式回退</span></div>
+  <div class="vp s390"><iframe src="/"></iframe></div>
+</body>
+</html>

@@ -1,0 +1,354 @@
+{
+  "projects": [
+    {
+      "slug": "sde-net-sar-oil-spill",
+      "track": "cv",
+      "title": "SDE-Net：SAR 影像海上溢油智能分割",
+      "titleEn": "SDE-Net: A Strip-Directional Dynamic-Scale and Edge-Aware Network for SAR Oil Spill Segmentation",
+      "oneLine": "针对 SAR 影像油膜边界模糊、易与船尾迹混淆，构建 ConvNeXt-Small 骨干的 SDE-Net，引入条带方向性动态尺度与边缘感知机制，在 SOS 数据集上 mIoU 达 87.95% / 89.53%，优于 U-Net 等经典模型。",
+      "headline": "mIoU 87.95% / 89.53%",
+      "headlineLabel": "SOS 数据集 · SCI 三区一作",
+      "year": "2026.09",
+      "venue": "SCI 三区 · 第一作者",
+      "badges": ["论文", "SCI 三区一作", "像素级分割"],
+      "github": { "status": "pending", "url": null, "repoName": "sde-net-sar-oil-spill-segmentation" },
+      "role": "第一作者，独立完成问题定义 → 网络设计 → 训练与消融 → 成稿全流程。",
+      "sections": [
+        { "type": "lead", "text": "在公开 SOS 数据集上取得 mIoU 87.95% / 89.53%，优于 U-Net 等经典分割模型（SCI 三区一作，2026.09）。" },
+        { "type": "h", "text": "背景与问题" },
+        { "type": "prose", "blocks": [
+          "SAR 侧视雷达遥感影像中，溢油表现为暗斑。但船尾迹、海况杂波同样呈暗斑，且边界模糊 —— 语义混淆是该场景的核心难点。",
+          "换句话说，这不是「能不能分出油」的问题，而是「能不能把油膜的边界从暗斑里切出来」的问题。这决定了整个网络的建模方向：保留连续性、适配尺度差异、锐化边界。"
+        ] },
+        { "type": "h", "text": "三个设计点" },
+        { "type": "steps", "items": [
+          { "title": "条带方向性（Strip-Directional）", "text": "油膜是细长连通形态，沿条带方向建模可保住连续性。" },
+          { "title": "动态尺度（Dynamic-Scale）", "text": "同一场景油膜尺度差异大，固定尺度感受野不匹配。" },
+          { "title": "边缘感知（Edge-Aware）", "text": "油膜与海况杂波的区分本质上靠边界，边界质量直接决定 mIoU。" }
+        ] },
+        { "type": "callout", "tone": "note", "title": "口径说明", "text": "本项目使用公开数据集 SOS，非自建数据集。FCS-Net（2026.06 启动版本，频率-空间注意力路线）为存档版本，网站只讲最终发表的 SDE-Net。" },
+        { "type": "h", "text": "结果" },
+        { "type": "prose", "blocks": [
+          "评估覆盖 mIoU / IoU / F1 / Dice，与 U-Net、UNet++、DeepLabV3+ 等基线对比；可视化样例包含正常油膜、船尾迹干扰、细长油膜与破碎油膜四类典型情形。"
+        ] },
+        { "type": "figure", "caption": "原图 / GT / 预测掩膜 三联对比", "status": "pending", "note": "论文原图待补入（不生成示意图代替实验结果）" },
+        { "type": "table", "caption": "mIoU 两组结果（对应实验设置待确认）", "head": ["指标", "设置 A", "设置 B"], "rows": [["mIoU", "87.95%", "89.53%"], ["对比基线", "U-Net / UNet++ / DeepLabV3+", "U-Net / UNet++ / DeepLabV3+"]], "align": ["l", "r", "r"], "note": "两组数值分别对应的实验设置、基线完整列表与 SOS 划分比例待补。" },
+        { "type": "h", "text": "复现方式" },
+        { "type": "kv", "items": [["代码", "仓库待建（sde-net-sar-oil-spill-segmentation）"], ["数据", "公开数据集 SOS · 完整名称与划分比例待补"], ["演示", "Gradio 演示待上线"]] },
+        { "type": "h", "text": "关联产出" },
+        { "type": "list", "items": ["SCI 三区 一作（2026.09）· SDE-Net: A Strip-Directional Dynamic-Scale and Edge-Aware Network for SAR Oil Spill Segmentation"] }
+      ],
+      "materials": [
+        { "kind": "结果三联对比图（input / GT / prediction）", "status": "pending" },
+        { "kind": "含基线对比的指标表", "status": "partial", "note": "已有 mIoU，基线完整列表待补" },
+        { "kind": "30 秒推理演示 GIF", "status": "pending" },
+        { "kind": "代码仓库链接", "status": "pending" },
+        { "kind": "Gradio 在线演示", "status": "pending" }
+      ],
+      "interviewHook": "SAR 影像里船尾迹和油膜都是暗斑、边界还都糊 —— 你怎么让网络分得出这两者？",
+      "related": { "papers": ["sde-net"], "awards": [], "projects": [] }
+    },
+    {
+      "slug": "fgl-yolo-insulator",
+      "track": "cv",
+      "title": "FGL-YOLO：无人机红外绝缘子缺陷检测",
+      "titleEn": "FGL-YOLO: A Lightweight and Efficient Network for Insulator Defect Detection on UAV",
+      "oneLine": "基于 YOLO11 + FasterNet 主干 + SlimNeck 颈部 + LSCD 轻量共享卷积检测头构建轻量化检测方案，在 IDID + CPLID 双数据集上验证，边缘端总 FPS 193.5。",
+      "headline": "mAP50-95 0.5749 · 3.73M 参数",
+      "headlineLabel": "边缘端 193.5 总 FPS",
+      "year": "2026.01",
+      "venue": "EI 收录会议 · 第一作者",
+      "badges": ["论文", "一作", "边缘端部署", "双数据集"],
+      "github": { "status": "live", "url": "https://github.com/fei33fei/Insulator_defect", "repoName": "Insulator_defect" },
+      "role": "第一作者，独立完成网络设计、跨数据集消融与边缘端部署实测。",
+      "sections": [
+        { "type": "lead", "text": "YOLO11 + FasterNet + SlimNeck + LSCD：mAP50 0.8850 / mAP50-95 0.5749，参数量 3,727,706（3.73M）、GFLOPs 8.1、模型 7.4 MB，边缘端总 FPS 193.5。" },
+        { "type": "h", "text": "背景与问题" },
+        { "type": "prose", "blocks": [
+          "无人机红外视角下的绝缘子是小目标，且背景复杂（天空、线缆、塔架）。既要在红外弱对比下检出破损与污秽闪络，又要让模型小到能在边缘端实时跑起来 —— 这两条约束直接决定了整体设计：不是把主干换大，而是把检测头换轻。"
+        ] },
+        { "type": "h", "text": "数据集" },
+        { "type": "prose", "blocks": [
+          "采用 IDID + CPLID 双数据集，3 类：insulator 正常绝缘子、broken 破损、pollution-flashover 污秽闪络。双数据集不是冗余，是后面「跨数据集反例」的对照基础。"
+        ] },
+        { "type": "h", "text": "LSCD 检测头原理" },
+        { "type": "prose", "blocks": [
+          "这是本项目技术含量最高的一段。LSCD（Lightweight Shared Convolutional Detection Head）的做法是三步："
+        ] },
+        { "type": "steps", "items": [
+          { "title": "统一投影", "text": "P3 / P4 / P5 特征先经 Conv_GN 投影到相同隐层 hidc，消除尺度间的通道差异。" },
+          { "title": "跨尺度共享", "text": "三尺度共用 share_conv（DWConv 3×3(g=hidc) + PWConv 1×1），一次卷积替代三套独立卷积 —— 这是参数与计算量下降的主因。" },
+          { "title": "双分支输出", "text": "回归 cv2（1×1 → 4×reg_max=64）与分类 cv3（1×1 → nc=3）；回归量经 DFL(reg_max=16) 解码为 xywh。" }
+        ] },
+        { "type": "diagram", "variant": "lscd", "caption": "LSCD 检测头结构：统一投影 → 跨尺度共享卷积 → 回归/分类双分支" },
+        { "type": "h", "text": "IDID 消融总表" },
+        { "type": "table", "caption": "IDID 数据集消融（含参数量与双 FPS 口径）", "head": ["实验", "参数量", "GFLOPs", "大小(MB)", "推理FPS", "总FPS", "P", "R", "mAP50", "mAP50-95"], "rows": [
+          ["基线 YOLO11", "2,582,737", "6.3", "5.2", "414.4", "211.7", "0.8984", "0.7813", "0.8437", "0.5502"],
+          ["+ FasterNet", "3,902,349", "9.2", "7.8", "347.1", "192.5", "0.8528", "0.8411", "0.8668", "0.5658"],
+          ["+ SlimNeck", "2,570,209", "5.9", "5.3", "276.1", "161.1", "0.8817", "0.8114", "0.8511", "0.5676"],
+          ["+ LSCD", "2,420,622", "5.6", "4.9", "377.6", "214.8", "0.8820", "0.7903", "0.8479", "0.5573"],
+          ["+ FasterNet + LSCD", "3,740,234", "8.4", "7.4", "353.4", "206.2", "0.8945", "0.8499", "0.8806", "0.5691"],
+          ["+ SlimNeck + LSCD", "2,408,094", "5.2", "4.9", "436.2", "243.0", "0.9174", "0.8032", "0.8630", "0.5697"],
+          ["+ FasterNet + SlimNeck + LSCD", "3,727,706", "8.1", "7.4", "320.8", "193.5", "0.9200", "0.8239", "0.8850", "0.5749"]
+        ], "align": ["l", "r", "r", "r", "r", "r", "r", "r", "r", "r"], "highlight": [6, 5] },
+        { "type": "callout", "tone": "key", "title": "最佳性价比结论", "text": "Baseline + SlimNeck + LSCD 相比基线参数少 17.4 万、GFLOPs 少 1.1，mAP50-95 反而 +0.0195，总 FPS 从 211.7 提升到 243.0 —— 精度与速度双赢。对比之下：加 FasterNet 精度涨最多但参数多 131 万，是「堆资源换精度」；加 LSCD 参数反降 16 万，是「结构改对了」。" },
+        { "type": "h", "text": "跨数据集反例" },
+        { "type": "prose", "blocks": [
+          "同一组改进搬到 CPLID 上，结果全部回退。这是真实实验结论，不藏。"
+        ] },
+        { "type": "table", "caption": "CPLID 数据集消融", "head": ["实验", "mAP50", "mAP50-95", "相对基线"], "rows": [
+          ["基线 YOLO11", "0.9924", "0.8254", "—"],
+          ["+ FasterNet", "0.9904", "0.8009", "−0.0245"],
+          ["+ SlimNeck", "0.9913", "0.8219", "−0.0035"],
+          ["+ LSCD", "0.9931", "0.8072", "−0.0182"],
+          ["+ SlimNeck + LSCD", "0.9929", "0.8086", "−0.0168"],
+          ["+ FasterNet + SlimNeck + LSCD", "0.9925", "0.8026", "−0.0228"]
+        ], "align": ["l", "r", "r", "r"] },
+        { "type": "callout", "tone": "warn", "title": "为什么在另一个数据集上没 work", "text": "CPLID 基线已接近饱和（mAP50-95 0.8254），改进模块带来的表征增益被冗余抵消。结论是：增益与数据集的难度 / 基线水平强相关。这不是失败，是把「方法有效」这个结论的适用边界划清楚了。" },
+        { "type": "h", "text": "边缘端实测" },
+        { "type": "kv", "items": [["设备", "NVIDIA Jetson Orin Nano Super（CLB 模组开发套件）"], ["系统", "Ubuntu 20.06"], ["总 FPS", "193.5"], ["推理 FPS", "320.8"], ["待补", "是否经 ONNX / TensorRT 导出、是否做 INT8 量化、边缘端与桌面是否同一代码路径"]] },
+        { "type": "h", "text": "复现方式" },
+        { "type": "kv", "items": [["代码", "GitHub · fei33fei/Insulator_defect（README 已含完整结构说明）"], ["数据", "IDID + CPLID 公开数据集"], ["物料", "仓库含 mermaid 结构图、双数据集消融 CSV、分类别指标"]] }
+      ],
+      "materials": [
+        { "kind": "仓库 mermaid 结构图", "status": "ready", "note": "已公开" },
+        { "kind": "双数据集消融 CSV", "status": "ready", "note": "已公开" },
+        { "kind": "分类别指标", "status": "ready", "note": "已公开" },
+        { "kind": "演示 GIF", "status": "pending" },
+        { "kind": "结果三联对比图", "status": "pending" }
+      ],
+      "interviewHook": "同一套改进在 IDID 全面提升、在 CPLID 全部回退 —— 你怎么解释？",
+      "related": { "papers": ["fgl-yolo"], "awards": [], "projects": [] }
+    },
+    {
+      "slug": "bridge-defect-detection",
+      "track": "cv",
+      "title": "桥梁表观病害精细化智能检测",
+      "titleEn": "Bridge Surface Defect Detection",
+      "oneLine": "基于 YOLO11 构建轻量化检测模型，采用滑动窗口切片 + 离线 Copy-Paste 增强 + 分层重划分的数据处理链路解决超高分辨率原图不可直接输入的问题，最佳模型 YOLO11-C3k2-DCNV2-SlimNeck-WFU 在边缘设备 29 FPS 满足实时。",
+      "headline": "边缘端 29 FPS · 6 类病害",
+      "headlineLabel": "COCO-Bridge 11,123 → 27,757 张",
+      "year": "2026",
+      "venue": "省赛三等奖 · 服务外包创新创业大赛 桥梁病变赛道",
+      "badges": ["省赛三等奖", "数据工程", "边缘端部署"],
+      "github": { "status": "live", "url": "https://github.com/fei33fei/Bridge_structural_defects", "repoName": "Bridge_structural_defects" },
+      "role": "负责数据处理链路与模型结构设计，完成 25 组对比实验与边缘端实测。",
+      "sections": [
+        { "type": "lead", "text": "把 11,123 张超高分辨率原图变成 27,757 张可训练图块、40,694 个标注实例，再让模型在 Jetson 上跑到 29 FPS。" },
+        { "type": "h", "text": "背景与问题" },
+        { "type": "prose", "blocks": [
+          "桥梁巡检的原始图像是超高分辨率整图，裂缝、蜂窝、渗水这类目标在整图里又细又长，直接缩放输入会让它们消失。数据不能直接进模型，模型也不能只看数据规模 —— 这是这个项目真正的工程含量所在。"
+        ] },
+        { "type": "h", "text": "6 类缺陷" },
+        { "type": "table", "caption": "COCO-Bridge 缺陷类别", "head": ["ID", "英文", "中文", "含义"], "rows": [
+          ["0", "Crack", "裂缝", "桥体表面线状裂缝"],
+          ["1", "Breakage", "破损", "混凝土剥落、缺损"],
+          ["2", "Comb", "蜂窝", "蜂窝状露骨麻面"],
+          ["3", "Hole", "孔洞", "贯穿性孔洞 / 空鼓脱落"],
+          ["4", "Reinforcement", "露筋", "保护层剥落后钢筋外露"],
+          ["5", "Seepage", "渗水", "渗漏水渍痕迹"]
+        ], "align": ["r", "l", "l", "l"] },
+        { "type": "h", "text": "数据处理链路" },
+        { "type": "diagram", "variant": "pipeline", "caption": "超高分辨率原图 → 可训练图块：切片、增强、重划分三步" },
+        { "type": "steps", "items": [
+          { "title": "滑动窗口切片", "text": "超高分辨率原图 → 可训练图块，让裂缝这类细长目标有足够像素。" },
+          { "title": "离线 Copy-Paste 增强", "text": "缓解类别长尾 —— 少样本缺陷类被复制粘贴到真实背景上。" },
+          { "title": "分层重划分", "text": "避免同源图块跨训练 / 验证集泄漏，否则验证指标是假的。" }
+        ] },
+        { "type": "table", "caption": "数据规模", "head": ["阶段", "图像数", "划分", "标注实例"], "rows": [
+          ["原始（COCO-Bridge 格式）", "11,123", "train 8,898 / valid 1,112 / test 1,113", "—"],
+          ["640 滑动窗口切片 + Copy-Paste 增强后", "27,757", "train 22,849 / val 2,405 / test 2,503", "40,694"]
+        ], "align": ["l", "r", "l", "r"] },
+        { "type": "h", "text": "最佳模型结构" },
+        { "type": "prose", "blocks": ["YOLO11-C3k2-DCNV2-SlimNeck-WFU。结构设计直接对应病害形态。"] },
+        { "type": "steps", "items": [
+          { "title": "Backbone", "text": "Conv → C3k2 → Conv → C3k2 → Conv → C3k2_DCNv2(P4) → Conv → C3k2_DCNv2(P5) → SPPF → C2PSA" },
+          { "title": "C3k2_DCNv2", "text": "P4 / P5 引入可变形卷积 v2，用可学习偏移量与调制权重建模裂缝、渗水等不规则细长目标。" },
+          { "title": "C2PSA", "text": "P5 层 PSA 注意力强化全局上下文。" },
+          { "title": "Head", "text": "WFU + VoVGSCSP (P3) → GSConv → WFU + VoVGSCSP (P4) → GSConv → VoVGSCSP (P5) → Detect" },
+          { "title": "WFU / GSConv", "text": "WFU 融合高层语义与低层细节，缓解浅层特征下采样信息丢失；VoVGSCSP / GSConv 用分组卷积 + 通道混排，在低参数量下保精度。" }
+        ] },
+        { "type": "h", "text": "实验规模与工程化" },
+        { "type": "prose", "blocks": [
+          "runs/train_bridge/ 20 组 + runs/train_sliced/ 5 组，共 25 组对比实验。分支包括 DCNv2-SlimNeck-WFU（最佳）、FasterNet-t1 + DySnakeConv + WFU + SlimNeck、+ StripAttention、+ LSCD + LQE、+ InnerSlide、ConvNeXtV2 + DySnakeConv + DySample。",
+          "配套工具链：run_train.py（断点续训）、run_view.py、measure_utils.py、get_FPS.py、get_model_erf.py、export.py、heatmap.py、transform_PGI.py。"
+        ] },
+        { "type": "h", "text": "结果" },
+        { "type": "kv", "items": [["mAP@0.5", "46.6%"], ["边缘端", "29 FPS（Jetson Orin Nano Super）"], ["分类别指标", "6 类分项指标表待补入"], ["关联产出", "大学生服务外包创新创业大赛 桥梁病变图像检测赛道 省赛三等奖"]] }
+      ],
+      "materials": [
+        { "kind": "6 类分类别指标表", "status": "pending" },
+        { "kind": "数据处理链路说明（仓库 data_augmentation_and_slicing.md）", "status": "ready", "note": "已公开" },
+        { "kind": "结果三联对比图", "status": "pending" },
+        { "kind": "演示 GIF", "status": "pending" }
+      ],
+      "interviewHook": "切片之后再切分训练 / 验证集，如果不注意同源图块泄漏，验证指标还能看吗？",
+      "related": { "papers": [], "awards": ["bridge-provincial-3rd"], "projects": [] }
+    },
+    {
+      "slug": "steel-defect-attention",
+      "track": "cv",
+      "title": "钢材表面缺陷 · 注意力机制消融",
+      "titleEn": "Steel Surface Defect Detection Based on an Improved YOLOv8 Integrating EMA Attention Mechanism",
+      "oneLine": "融合 SE 注意力、EMA 与 CBAM 模块改进 YOLOv8，在 NEU-DET 上完成钢材表面缺陷检测消融；SE 与 EMA 在 mAP50-95 上分别 +0.0296 / +0.0292，而 CBAM 参数量开销达 EMA 的 6.4 倍却精度垫底。",
+      "headline": "mAP50-95 0.3190 → 0.3486",
+      "headlineLabel": "国赛三等奖 · NEU-DET 6 类",
+      "year": "2026.03",
+      "venue": "EI 收录期刊 · 第一作者 ｜ 中国大学生计算机设计大赛 国赛三等奖",
+      "badges": ["论文", "国赛三等奖", "消融实验"],
+      "github": { "status": "live", "url": "https://github.com/fei33fei/yolov8-se-ema-cbam", "repoName": "yolov8-se-ema-cbam" },
+      "role": "第一作者，独立完成三组注意力模块的受控消融与参数量核算。",
+      "sections": [
+        { "type": "lead", "text": "三组注意力在 mAP50-95 上分别为 +0.0296 / +0.0292 / +0.0209，但参数量开销相差 8 倍 —— 精度和开销不是一回事。" },
+        { "type": "h", "text": "NEU-DET 6 类" },
+        { "type": "prose", "blocks": ["crazing 龟裂、inclusion 夹杂、patches 补丁、pitted_surface 麻点、rolled-in_scale 氧化轧入、scratches 划痕。"] },
+        { "type": "h", "text": "消融总表" },
+        { "type": "table", "caption": "NEU-DET 消融（真实数据）", "head": ["实验", "模型配置", "初始化", "实际轮数", "最佳 epoch", "P", "R", "mAP50", "mAP50-95"], "rows": [
+          ["基线", "yolov8n.pt", "COCO 预训练", "79（早停）", "49", "0.5554", "0.6167", "0.6440", "0.3190"],
+          ["+ SEBlock", "yolov8-se.yaml", "随机初始化", "277", "227", "0.6630", "0.6516", "0.6849", "0.3486"],
+          ["+ EMA", "yolov8-ema.yaml", "随机初始化", "172", "122", "0.5848", "0.6433", "0.6776", "0.3482"],
+          ["+ CBAM", "yolov8-cbam.yaml", "随机初始化", "248", "198", "0.6270", "0.6730", "0.6862", "0.3399"]
+        ], "align": ["l", "l", "l", "r", "r", "r", "r", "r", "r"], "highlight": [1] },
+        { "type": "h", "text": "参数量开销" },
+        { "type": "kv", "items": [["SE", "+43,008"], ["EMA", "+54,208"], ["CBAM", "+345,254（EMA 的 6.37×）"]] },
+        { "type": "callout", "tone": "key", "title": "这个项目真正在回答的问题", "text": "CBAM 参数量开销达 EMA 的 6.4 倍，mAP50-95 却是三组里最低的。选模块不能只看「哪个更强」，得看「每单位参数量换到多少精度」。" },
+        { "type": "h", "text": "分类别表现与后续动机" },
+        { "type": "prose", "blocks": [
+          "EMA 六类分类别表现中，patches 最好（mAP@50 0.896）；crazing 0.483 与 rolled-in_scale 0.481 是两个难点类别。根因是检测框无法表达像素级边界 —— 这正是后续迁移到分割框架（SDE-Net / UNet）的动机，构成 CV 方向项目之间的连贯故事线。"
+        ] },
+        { "type": "h", "text": "训练稳定性" },
+        { "type": "prose", "blocks": [
+          "基线第 79 轮即早停（最佳 49），三组注意力实验最佳点推迟到 227 / 122 / 198 轮 —— 有效学习期显著延长，过拟合更晚。"
+        ] },
+        { "type": "callout", "tone": "warn", "title": "读数须知（仓库已披露，网站同样保留）", "text": "基线使用 COCO 预训练 yolov8n.pt，三组实验使用 .yaml 随机初始化。三组实验在无预训练下仍全面超过基线，结论更强；但严格受控需要补跑 yolov8n.yaml 随机初始化基线。另外基线 patience=30，实验组 patience=50。" }
+      ],
+      "materials": [
+        { "kind": "消融汇总（ablation_summary_latest.md / .csv / .txt）", "status": "ready", "note": "已补提交（commit eecc50e）" },
+        { "kind": "EMA 六类分类别指标", "status": "ready", "note": "已公开" },
+        { "kind": "结果三联对比图", "status": "pending" }
+      ],
+      "interviewHook": "CBAM 参数是 EMA 的 6.4 倍，精度还最低 —— 你会怎么选？",
+      "related": { "papers": ["steel-ema"], "awards": ["cdss-national-3rd"], "projects": ["sde-net-sar-oil-spill"] }
+    },
+    {
+      "slug": "road-pothole-detection",
+      "track": "cv",
+      "title": "多场景路面坑洼实时检测系统",
+      "titleEn": "Multi-scene Road Pothole Real-time Detection",
+      "oneLine": "基于 YOLOv8 构建多场景路面坑洼实时检测系统，自建城市 / 乡村 / 山区道路数据集；验证集 mAP@0.5 达 74.26%，推理速度 61.27 FPS，模型仅 8.1 GFLOPs、300 万参数，可部署于嵌入式终端，满足助盲设备实时性要求。",
+      "headline": "61.27 FPS · mAP@0.5 74.26%",
+      "headlineLabel": "发明专利 + 软著",
+      "year": "2026.07",
+      "venue": "发明专利 + 软件著作权 + 会议论文",
+      "badges": ["发明专利", "软著", "自建数据集", "助盲应用"],
+      "github": { "status": "pending", "url": null, "repoName": "multi-scene-road-pothole-detection" },
+      "role": "独立完成数据集采集、模型训练与边缘端部署验证。",
+      "sections": [
+        { "type": "lead", "text": "自建 665 张 / 1,740 实例的数据集，在 Jetson Orin Nano Super 上跑到 61.27 FPS，服务于助盲设备的路面预警原型。" },
+        { "type": "h", "text": "自建数据集（Pavement-depression）" },
+        { "type": "table", "caption": "数据集规模（7:2:1 划分）", "head": ["子集", "图像", "坑洼实例", "备注"], "rows": [
+          ["train", "460", "1,210", "7:2:1 划分"],
+          ["val", "131", "341", "含 1 张无缺陷背景图"],
+          ["test", "74", "189", ""],
+          ["合计", "665", "1,740", "1 类（pothole）· VOC XML + YOLO txt 双格式"]
+        ], "align": ["l", "r", "r", "l"], "highlight": [3] },
+        { "type": "h", "text": "覆盖维度" },
+        { "type": "steps", "items": [
+          { "title": "场景覆盖", "text": "城市主干道 / 乡村公路 / 山区道路" },
+          { "title": "光照覆盖", "text": "晴天 / 阴天 / 逆光 / 傍晚弱光 / 雨后湿滑" },
+          { "title": "形态覆盖", "text": "浅坑 / 深坑 / 线性坑 / 密集坑 / 小尺寸（直径 < 10 cm）" }
+        ] },
+        { "type": "callout", "tone": "note", "title": "关于 665 张", "text": "665 张对深度学习属小数据集。所以叙事重心放在「场景 / 光照 / 形态的三维覆盖度」与「助盲应用落点」，而不是数据量。如果被问为什么只有 665 张：面向助盲设备的实时性要求限制了模型规模；同时为覆盖三类道路与五种光照，优先做了受控采集而非无差别抓取 —— 小而可控优于大而失衡。" },
+        { "type": "h", "text": "助盲设备形态" },
+        { "type": "prose", "blocks": [
+          "墨镜式硬件形态，集成双目摄像头（测距）+ 单目摄像头（路面凹陷识别），通过耳机播报与蜂鸣提示反馈。"
+        ] },
+        { "type": "callout", "tone": "warn", "title": "表述纪律", "text": "双目与单目目前是分别验证的独立模组，尚未完成整机集成。本站与简历一律写「研究原型 / 拟研制方案」，不写「已实现」「已集成」。这个项目真正已经验证过的部分是检测算法与 Jetson 边缘部署，不在整机。" },
+        { "type": "h", "text": "结果" },
+        { "type": "kv", "items": [["mAP@0.5", "74.26%"], ["边缘端", "61.27 FPS（Jetson Orin Nano Super）"], ["GFLOPs", "8.1"], ["参数量", "300 万"], ["分场景指标", "城市 / 乡村 / 山区分项表待补"], ["待补", "边缘端部署框架（ONNX / TensorRT）、具体设备型号与功耗"]] },
+        { "type": "h", "text": "关联产出" },
+        { "type": "list", "items": ["发明专利《基于 YOLOv8 的路面坑洼实时检测算法可视化系统》", "软件著作权《基于深度学习的路面凹陷智能检测系统》（2026.07 已授权）", "会议论文《基于 YOLOv8 的多场景路面坑洼实时检测算法研究》（2026.04）"] }
+      ],
+      "materials": [
+        { "kind": "分场景指标表（城市 / 乡村 / 山区）", "status": "pending" },
+        { "kind": "数据集样例图", "status": "pending" },
+        { "kind": "边缘端演示录屏", "status": "pending" }
+      ],
+      "interviewHook": "自建数据集只有 665 张，为什么不直接用公开数据集？",
+      "related": { "papers": ["pothole-patent", "pothole-copyright", "pothole-paper"], "awards": [], "projects": [] }
+    },
+    {
+      "slug": "defect-inspection-agent",
+      "track": "agent",
+      "title": "缺陷检测 Agent",
+      "titleEn": "Defect Inspection Agent",
+      "oneLine": "端到端的工业缺陷检测 Agent —— 图像上传 → 调用 YOLO 权重推理 → 由视觉大模型解释缺陷类型与严重程度 → 生成结构化检测报告 → 写入数据库并生成工单；基于 LangGraph 编排，保留低置信度人工复核节点，附 Streamlit 在线演示。",
+      "headline": "图像 → 报告 → 工单",
+      "headlineLabel": "LangGraph 编排 · 低置信度转人工",
+      "year": "2026",
+      "venue": "个人项目 · 仓库待建",
+      "badges": ["Agent", "LangGraph", "人工复核", "MCP"],
+      "github": { "status": "pending", "url": null, "repoName": "defect-inspection-agent" },
+      "role": "独立设计节点切分、置信度门限策略与落库 / 工单链路。",
+      "sections": [
+        { "type": "lead", "text": "一个能真正跑完的工业缺陷检测流水线，并且知道什么时候不该自己下结论。" },
+        { "type": "h", "text": "为什么是它，而不是知识库系统" },
+        { "type": "prose", "blocks": [
+          "知识库系统是个人自用工具，无法作为「工程能力」的证据；而这个 Agent 同时踩中 CV 和 Agent 两个方向，且能复用已有的 FGL-YOLO 权重 —— 视觉侧的推理能力是真实存在的，不是调 API 调出来的。"
+        ] },
+        { "type": "h", "text": "处理链路" },
+        { "type": "diagram", "variant": "agent-flow", "caption": "图像上传 → 推理 → 视觉大模型解释 → 结构化报告 → 落库与工单" },
+        { "type": "steps", "items": [
+          { "title": "图像上传", "text": "接收待检图像，预处理后进入推理后端。" },
+          { "title": "YOLO 权重推理", "text": "调用 FGL-YOLO 权重，输出检测框与置信度。" },
+          { "title": "视觉大模型解释", "text": "由视觉大模型判读缺陷类型与严重程度。" },
+          { "title": "结构化检测报告", "text": "把结果整理为可归档、可追溯的检测报告。" },
+          { "title": "落库并生成工单", "text": "结果写入数据库并生成工单。" }
+        ] },
+        { "type": "callout", "tone": "key", "title": "差异化设计：置信度低于阈值 → 转人工复核", "text": "这与三丰项目「保留人工复核入口」的经验同构 —— 能讲出一条连贯的方法论：既做过工业流水线的自动化，也知道什么时候不该全自动。这是纯 CV 候选人和纯 Agent 候选人都不具备的视角。" },
+        { "type": "h", "text": "技术栈" },
+        { "type": "kv", "items": [["编排", "LangGraph / LangChain"], ["模型", "多模型 API（Claude / GPT / 本地模型）"], ["工具", "MCP 工具接入"], ["推理", "YOLO 推理后端"], ["演示", "Streamlit 在线演示"]] },
+        { "type": "h", "text": "物料" },
+        { "type": "list", "items": ["架构图", "端到端运行录屏 GIF", "results/failure_cases.md（失败案例与处理策略）", "docs/design_decisions.md（为什么这么切分节点）", "在线 demo"] },
+        { "type": "h", "text": "复现方式" },
+        { "type": "kv", "items": [["代码", "仓库待建（defect-inspection-agent）"], ["权重", "复用 FGL-YOLO 权重"], ["演示", "Streamlit 应用待上线"]] }
+      ],
+      "materials": [
+        { "kind": "架构图", "status": "pending" },
+        { "kind": "端到端运行录屏 GIF", "status": "pending" },
+        { "kind": "失败案例与处理策略", "status": "pending" },
+        { "kind": "节点切分设计说明", "status": "pending" },
+        { "kind": "在线 demo", "status": "pending" }
+      ],
+      "interviewHook": "你的 Agent 什么时候决定不自动化？这个门限怎么定出来的？",
+      "related": { "papers": [], "awards": [], "projects": ["fgl-yolo-insulator"] }
+    },
+    {
+      "slug": "astar-dwa-planning",
+      "track": "base",
+      "title": "改进 A* + DWA 融合的机器人动态路径规划",
+      "titleEn": "Research on Robot Path Planning Method Based on Improved A* and DWA Algorithms",
+      "oneLine": "改进 A* + DWA 融合的机器人动态路径规划，一作，期刊 / 会议 2026.01；机器人大赛省二、机器人创意大赛省二。",
+      "headline": "一作 · 机器人大赛省二 ×2",
+      "headlineLabel": "A* + DWA 融合",
+      "year": "2026.01",
+      "venue": "期刊 / 会议 · 第一作者",
+      "badges": ["一作", "路径规划", "机器人"],
+      "github": { "status": "pending", "url": null, "repoName": "astar-dwa-robot-path-planning" },
+      "role": "第一作者。",
+      "sections": [
+        { "type": "lead", "text": "全局 A* 给路径、局部 DWA 给避障，融合后既走得通也走得动。" },
+        { "type": "h", "text": "轻量展示" },
+        { "type": "prose", "blocks": [
+          "本项目是数学与工程底色的一部分，与视觉主线共用一套「建模 → 实现 → 验证 → 竞赛」的工作方式，因此不做完整详情页。",
+          "关联竞赛：机器人大赛省赛二等奖（位次 2）、中国高校智能机器人创意大赛足式机器人挑战赛省赛二等奖（位次 2）。"
+        ] },
+        { "type": "h", "text": "同方向的另一项轻量工作" },
+        { "type": "prose", "blocks": ["YOLO-FIS：无人机红外交通目标检测，三作，会议 2025.09。"] }
+      ],
+      "materials": [{ "kind": "路径规划示意", "status": "pending" }],
+      "interviewHook": "A* 和 DWA 分别负责什么？两者的衔接点怎么设计？",
+      "related": { "papers": ["astar-dwa", "yolo-fis"], "awards": ["robot-prov-2nd", "robot-creative-2nd"], "projects": [] }
+    }
+  ]
+}

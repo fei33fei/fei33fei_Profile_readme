@@ -1,0 +1,127 @@
+{
+  "intro": "论文、专利与软件著作权。类型与收录级别分两列写；每条标注署名位次 —— 位次与级别同等重要，不做取舍。",
+  "footnote": "第 2、3 项的出版载体（会议 / 期刊）依据《获奖经历总结》标注；EI 收录的最终认定以出版方收录证书为准。",
+  "papers": [
+    {
+      "id": "sde-net",
+      "title": "SDE-Net: A Strip-Directional Dynamic-Scale and Edge-Aware Network for SAR Oil Spill Segmentation",
+      "titleZh": "SDE-Net：条带方向性动态尺度与边缘感知的 SAR 海上溢油分割网络",
+      "kind": "论文",
+      "level": "SCI 三区",
+      "time": "2026.09",
+      "position": "一作",
+      "featured": true,
+      "note": "主推 · 对应项目页",
+      "link": "/projects/sde-net-sar-oil-spill/"
+    },
+    {
+      "id": "fgl-yolo",
+      "title": "FGL-YOLO: A Lightweight and Efficient Network for Insulator Defect Detection on UAV",
+      "titleZh": "FGL-YOLO：面向无人机绝缘子缺陷检测的轻量化高效网络",
+      "kind": "论文",
+      "level": "EI 收录（会议）",
+      "time": "2026.01",
+      "position": "一作",
+      "featured": true,
+      "mark": "※",
+      "note": "主推 · 对应项目页",
+      "link": "/projects/fgl-yolo-insulator/"
+    },
+    {
+      "id": "steel-ema",
+      "title": "Steel Surface Defect Detection Based on an Improved YOLOv8 Integrating EMA Attention Mechanism",
+      "titleZh": "融合 EMA 注意力机制的改进 YOLOv8 钢材表面缺陷检测",
+      "kind": "论文",
+      "level": "EI 收录（期刊）",
+      "time": "2026.03",
+      "position": "一作",
+      "featured": true,
+      "mark": "※",
+      "note": "主推 · 对应项目页",
+      "link": "/projects/steel-defect-attention/"
+    },
+    {
+      "id": "astar-dwa",
+      "title": "Research on Robot Path Planning Method Based on Improved A* and DWA Algorithms",
+      "titleZh": "基于改进 A* 与 DWA 算法的机器人路径规划方法研究",
+      "kind": "论文",
+      "level": "会议",
+      "time": "2026.01",
+      "position": "一作",
+      "featured": false,
+      "note": "轻量展示",
+      "link": "/projects/astar-dwa-planning/"
+    },
+    {
+      "id": "pothole-paper",
+      "title": "基于 YOLOv8 的多场景路面坑洼实时检测算法研究",
+      "titleZh": "",
+      "kind": "论文",
+      "level": "会议",
+      "time": "2026.04",
+      "position": null,
+      "positionNote": "整理中",
+      "featured": false,
+      "note": "署名位次整理中 · 对应项目页",
+      "link": "/projects/road-pothole-detection/"
+    },
+    {
+      "id": "yolo-fis",
+      "title": "YOLO-FIS: Enhancing Infrared Traffic Object Detection from UAV Perspectives",
+      "titleZh": "YOLO-FIS：提升无人机视角下的红外交通目标检测",
+      "kind": "论文",
+      "level": "会议",
+      "time": "2025.09",
+      "position": "三作",
+      "featured": false,
+      "note": "轻量展示",
+      "link": "/projects/astar-dwa-planning/"
+    },
+    {
+      "id": "spc-variance",
+      "title": "基于视觉监控与 SPC 融合算法的制造过程可视化变差研究",
+      "titleZh": "",
+      "kind": "论文",
+      "level": "会议 · 发表于《电脑编程技巧与维护》",
+      "time": "2024.08",
+      "position": "三作",
+      "featured": false,
+      "note": "数学与工程底色"
+    },
+    {
+      "id": "ga-rf-nipt",
+      "title": "Genetic algorithm-enhanced random forest: a cost-sensitive and interpretable machine learning framework for accurate chromosomal abnormality detection in non-invasive prenatal testing",
+      "titleZh": "遗传算法增强的随机森林：面向 NIPT 染色体异常检测的成本敏感可解释机器学习框架",
+      "kind": "论文",
+      "level": "SCI 二区",
+      "time": "2026.06",
+      "position": "四作",
+      "featured": false,
+      "note": "如实列出，不做项目页、不进精选项目。理由：四作的贡献度通常无法支撑独立项目页的深度要求；但在列表里出现，不占用主线位置，也不损失信息。"
+    },
+    {
+      "id": "pothole-patent",
+      "title": "基于 YOLOv8 的路面坑洼实时检测算法可视化系统",
+      "titleZh": "",
+      "kind": "发明专利",
+      "level": "—",
+      "time": null,
+      "position": "—",
+      "featured": false,
+      "note": "对应项目页",
+      "link": "/projects/road-pothole-detection/"
+    },
+    {
+      "id": "pothole-copyright",
+      "title": "基于深度学习的路面凹陷智能检测系统",
+      "titleZh": "",
+      "kind": "软件著作权",
+      "level": "—",
+      "time": "2026.07",
+      "position": "—",
+      "featured": false,
+      "note": "已授权 · 对应项目页",
+      "link": "/projects/road-pothole-detection/"
+    }
+  ]
+}

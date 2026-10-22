@@ -1,0 +1,58 @@
+{
+  "intro": "按国家级 → 省级 → 校级分组，每条标注位次。国家级与省级代表作在首页速览中重复出现。",
+  "groups": [
+    {
+      "id": "national",
+      "label": "国家级",
+      "count": 5,
+      "items": [
+        { "time": "2026.05", "name": "全国高校商业精英挑战赛 国际贸易竞赛 全国总决赛", "award": "国赛二等奖", "position": null, "positionNote": "—", "note": "" },
+        { "time": "2025.06", "name": "中国大学生计算机设计大赛（钢材缺陷分割检测）", "award": "国赛三等奖", "position": 4, "positionNote": "位次 4", "note": "另获省赛一等奖" },
+        { "time": "2025.01", "name": "全国大学生数学建模竞赛", "award": "国赛二等奖", "position": 3, "positionNote": "位次 3", "note": "" },
+        { "time": "2024.11", "name": "全国高校商业精英挑战赛 国际贸易竞赛 RCEP 赛道", "award": "国赛一等奖", "position": 2, "positionNote": "位次 2", "note": "" },
+        { "time": "2024.12", "name": "第二届「数学周报」全国大学生数学能力大赛", "award": "国赛二等奖", "position": 1, "positionNote": "位次 1", "note": "" }
+      ]
+    },
+    {
+      "id": "provincial",
+      "label": "省级",
+      "count": 4,
+      "items": [
+        { "time": "2026.04", "name": "大学生服务外包创新创业大赛 桥梁病变图像检测赛道", "award": "省赛三等奖", "position": null, "positionNote": "—", "note": "" },
+        { "time": "2025.12", "name": "全国高校计算机能力挑战赛 Word 赛道", "award": "省赛一等奖", "position": 1, "positionNote": "位次 1", "note": "" },
+        { "time": "2025.08", "name": "中国机器人大赛暨 RoboCup 中国赛 四足仿生机器人快递运送", "award": "省赛二等奖", "position": 2, "positionNote": "位次 2", "note": "" },
+        { "time": "2025.07", "name": "中国高校智能机器人创意大赛 足式机器人挑战赛", "award": "省赛二等奖", "position": 2, "positionNote": "位次 2", "note": "" }
+      ]
+    }
+  ],
+  "collapsed": {
+    "label": "其余荣誉（校级与参与奖）",
+    "count": 17,
+    "items": [
+      { "time": "2026.08", "name": "iCAN 大学生创新创业大赛", "award": "校赛二等奖", "position": null, "positionNote": "—", "note": "" },
+      { "time": "2026.05", "name": "第一届南通理工学院机械工程创新创意大赛", "award": "校赛三等奖", "position": null, "positionNote": "—", "note": "" },
+      { "time": "2026.04", "name": "第十六届三创赛 商务大数据分析实战赛", "award": "校赛参与奖", "position": null, "positionNote": "—", "note": "" },
+      { "time": "2025.06", "name": "中国大学生计算机设计大赛（聆路者项目）", "award": "校赛二等奖", "position": null, "positionNote": "—", "note": "" },
+      { "time": "2025.04", "name": "正大杯第十五届全国大学生市场调查与分析大赛", "award": "省赛三等奖", "position": null, "positionNote": "—", "note": "" },
+      { "time": "2025.03", "name": "第十九届挑战杯全国大学生课外学术科技作品竞赛", "award": "校赛二等奖", "position": null, "positionNote": "—", "note": "" },
+      { "time": "2025.03", "name": "第十六届大学生服务外包创新创业大赛", "award": "参与奖", "position": null, "positionNote": "—", "note": "" },
+      { "time": "2024.12", "name": "第七届「开源杯」江苏省智能（虚拟）仪器竞赛", "award": "省赛三等奖", "position": 3, "positionNote": "位次 3", "note": "" },
+      { "time": "2024.12", "name": "2023–2024 学年", "name2": "", "award": "二等奖学金", "position": null, "positionNote": "—", "note": "" },
+      { "time": "2025.12", "name": "2024–2025 学年", "award": "二等奖学金", "position": null, "positionNote": "—", "note": "" },
+      { "time": "2024.05", "name": "大学生创新创业训练计划项目「SPC」", "award": "省级已结项", "position": null, "positionNote": "—", "note": "" },
+      { "time": "2025.05", "name": "大学生创新创业训练计划项目「聆路者」", "award": "省级已结项", "position": 1, "positionNote": "负责人", "note": "" },
+      { "time": "2025.05", "name": "大学生创新创业训练计划项目「清沐灵居」", "award": "省级已结项", "position": 2, "positionNote": "位次 2", "note": "" },
+      { "time": "2024.04", "name": "正大杯第十四届全国大学生市场调查与分析大赛", "award": "省赛二等奖", "position": null, "positionNote": "—", "note": "" },
+      { "time": "2024.01", "name": "iCAN 大学生创新创业大赛", "award": "省赛二等奖", "position": 5, "positionNote": "位次 5", "note": "" },
+      { "time": "2024.03", "name": "人工智能算法精英挑战赛", "award": "参与奖", "position": null, "positionNote": "—", "note": "" },
+      { "time": "2024.06", "name": "第十届 LSCAT 杯江苏省笔译大赛", "award": "参与奖", "position": null, "positionNote": "—", "note": "" }
+    ]
+  },
+  "homeHighlights": [
+    { "time": "2026.05", "name": "全国高校商业精英挑战赛 · 国际贸易竞赛总决赛", "award": "国赛二等奖" },
+    { "time": "2025.06", "name": "中国大学生计算机设计大赛", "award": "国赛三等奖", "note": "位次 4" },
+    { "time": "2025.01", "name": "全国大学生数学建模竞赛", "award": "国赛二等奖", "note": "位次 3" },
+    { "time": "2024.11", "name": "全国高校商业精英挑战赛 · RCEP 赛道", "award": "国赛一等奖", "note": "位次 2" },
+    { "time": "2024.12", "name": "全国大学生数学能力大赛", "award": "国赛二等奖", "note": "位次 1" }
+  ]
+}

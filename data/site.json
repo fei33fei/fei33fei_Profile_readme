@@ -1,0 +1,140 @@
+{
+  "meta": {
+    "lang": "zh-CN",
+    "titleShort": "沈亦菲 · FeyFey",
+    "titleFull": "沈亦菲 · FeyFey ｜ 计算机视觉 × Agent 个人作品集",
+    "description": "南通理工学院人工智能专业 2027 届。计算机视觉（图像分割 / 缺陷检测 / 边缘端部署）与 Agent 开发双主线，4 篇一作论文、1 项发明专利、1 项软著。",
+    "author": "沈亦菲",
+    "ogImage": "/assets/portrait-3x4.jpg",
+    "themeColor": "#0B1114"
+  },
+  "identity": {
+    "name": "沈亦菲",
+    "nameLatin": "FeyFey",
+    "eyebrow": "2027 届校招 · 计算机视觉 × Agent",
+    "positioning": "用视觉算法读懂图像，用 Agent 把流程自动化。",
+    "positioningSub": "计算机视觉 × Agent —— 分割与缺陷检测算法做到边缘端跑得动，再把检测模型接进能自动执行的业务流程。",
+    "metaLine": "南通理工学院 · 人工智能专业 · 2027 届 ｜ 方向：计算机视觉（分割 / 检测）· Agent 开发",
+    "ctas": [
+      { "label": "看项目", "href": "/projects/", "kind": "primary" },
+      { "label": "看论文", "href": "/papers/", "kind": "ghost" },
+      { "label": "下载简历", "href": "/resume/", "kind": "ghost" }
+    ]
+  },
+  "palette": {
+    "surfaceReading": "#F3F0E8",
+    "surfaceReadingAlt": "#EAE6DB",
+    "inkPrimary": "#141A1E",
+    "inkSecondary": "#4A555B",
+    "inkTertiary": "#7A848A",
+    "sceneGround": "#0B1114",
+    "sceneGroundLift": "#121C20",
+    "materialHighlight": "#FBF8F1",
+    "focusRing": "#FFD166"
+  },
+  "type": {
+    "displayStack": "\"Iowan Old Style\", \"Palatino Linotype\", \"Book Antiqua\", \"Source Han Serif SC\", \"Noto Serif SC\", \"Songti SC\", STSong, SimSun, serif",
+    "uiStack": "\"Inter\", \"Segoe UI Variable Text\", \"Segoe UI\", \"PingFang SC\", \"Microsoft YaHei UI\", \"Microsoft YaHei\", \"Noto Sans SC\", sans-serif",
+    "monoStack": "\"Cascadia Code\", \"JetBrains Mono\", Consolas, \"Sarasa Mono SC\", \"Noto Sans Mono CJK SC\", monospace"
+  },
+  "chapters": {
+    "home": {
+      "index": "00",
+      "label": "总览",
+      "accent": "#5FA38C",
+      "accentDeep": "#1E3A33",
+      "ground": "#0B1114",
+      "contour": "M118,306 C176,222 292,190 428,210 C566,230 700,188 824,236 C906,270 936,338 878,382 C802,440 652,428 528,452 C396,478 244,462 164,406 C108,366 88,340 118,306 Z"
+    },
+    "cv": {
+      "index": "01",
+      "label": "计算机视觉",
+      "accent": "#5FA38C",
+      "accentDeep": "#1E3A33",
+      "ground": "#0A1214",
+      "contour": "M104,292 C168,214 286,186 424,206 C560,226 700,184 826,232 C910,266 942,336 882,382 C802,444 646,430 522,456 C388,484 236,464 158,404 C102,362 74,330 104,292 Z"
+    },
+    "agent": {
+      "index": "02",
+      "label": "Agent 开发",
+      "accent": "#7B9AD1",
+      "accentDeep": "#232F4C",
+      "ground": "#0A0E16",
+      "contour": "M132,268 C188,206 268,180 352,198 C432,214 470,268 552,262 C640,256 690,196 782,206 C876,216 934,286 906,352 C876,422 770,438 664,428 C554,418 470,452 376,440 C272,426 168,378 122,316 C108,296 114,282 132,268 Z"
+    },
+    "base": {
+      "index": "03",
+      "label": "数学与工程",
+      "accent": "#C08050",
+      "accentDeep": "#3E2717",
+      "ground": "#12100D",
+      "contour": "M176,362 C168,286 214,222 292,204 C366,188 414,222 470,196 C540,164 616,182 668,238 C722,296 700,352 632,378 C562,406 508,372 442,390 C368,410 268,438 206,412 C184,404 178,382 176,362 Z"
+    },
+    "papers": {
+      "index": "04",
+      "label": "论文与专利",
+      "accent": "#8FA9C4",
+      "accentDeep": "#1D2C3A",
+      "ground": "#0B1017",
+      "contour": "M150,300 C210,236 306,206 420,224 C534,242 640,206 742,240 C826,268 862,326 822,368 C776,416 656,404 556,428 C452,454 330,444 240,404 C172,374 122,336 150,300 Z"
+    },
+    "awards": {
+      "index": "05",
+      "label": "荣誉奖项",
+      "accent": "#BE9A5E",
+      "accentDeep": "#3C3020",
+      "ground": "#100D09",
+      "contour": "M196,330 C182,268 226,214 296,200 C364,186 410,214 468,192 C532,168 606,190 650,242 C696,296 668,352 604,376 C542,400 486,368 422,384 C348,404 262,426 214,396 C196,384 192,354 196,330 Z"
+    },
+    "about": {
+      "index": "06",
+      "label": "关于我",
+      "accent": "#9BB3C7",
+      "accentDeep": "#1B2730",
+      "ground": "#0A0F12",
+      "contour": "M140,284 C186,224 268,198 360,214 C452,230 512,206 606,224 C690,240 748,286 728,344 C706,406 604,420 512,412 C416,404 344,436 262,420 C178,404 114,342 140,284 Z"
+    }
+  },
+  "cutEdges": {
+    "a": "M0,42 L292,42 L372,10 L742,20 L836,52 L1140,44 L1440,30 L1440,64 L0,64 Z",
+    "b": "M0,28 L214,48 L486,16 L662,40 L968,22 L1236,46 L1440,34 L1440,64 L0,64 Z",
+    "c": "M0,50 L336,30 L470,58 L742,14 L904,40 L1200,20 L1440,44 L1440,64 L0,64 Z",
+    "d": "M0,22 L262,34 L478,12 L700,46 L948,26 L1180,50 L1440,26 L1440,64 L0,64 Z"
+  },
+  "nav": [
+    { "label": "总览", "href": "/" },
+    { "label": "项目", "href": "/projects/" },
+    { "label": "论文", "href": "/papers/" },
+    { "label": "荣誉", "href": "/awards/" },
+    { "label": "关于", "href": "/about/" }
+  ],
+  "contact": {
+    "email": "nmebryz@163.com",
+    "phone": "18251141252",
+    "github": "https://github.com/fei33fei",
+    "githubHandle": "fei33fei",
+    "wechat": null,
+    "wechatNote": "整理中",
+    "footer": "© 2026 沈亦菲 ｜ 简历下载 ｜ 邮件联系"
+  },
+  "media": {
+    "portrait": "/assets/portrait-3x4.jpg",
+    "portraitSquare": "/assets/portrait-1x1.jpg",
+    "portraitAlt": "沈亦菲 · 南通理工学院人工智能专业",
+    "portrait3x4Size": "900×1200",
+    "portrait1x1Size": "512×512"
+  },
+  "assets": {
+    "portraitSource": {
+      "file": "个人经历/证件照.jpg",
+      "originalSize": "1181×1655",
+      "density": "600 DPI",
+      "sourceBytes": 367845,
+      "outputs": [
+        { "path": "/assets/portrait-3x4.jpg", "size": "900×1200", "bytes": 115738, "ratio": "3:4", "use": "首页主视觉 / 关于页" },
+        { "path": "/assets/portrait-1x1.jpg", "size": "512×512", "bytes": 30105, "ratio": "1:1", "use": "社交卡片 / 页脚" }
+      ],
+      "note": "原始宽高比 0.714（A4），已按 3:4 与 1:1 分别裁切；未加滤镜、美颜或更换背景。"
+    }
+  }
+}
